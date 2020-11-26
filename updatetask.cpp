@@ -10,7 +10,7 @@ void updatetask::run()
 {
 
     read_file();
-    test_frame();
+   // test_frame();
 
     int size = frame_list.size();
     int len = 0;
@@ -26,7 +26,10 @@ void updatetask::run()
             len = sprintf(buf,"{\"data\":{\"fileSize\":%d,\"payload\":\"%s\",\"md5\":\"%s\",\"token\":%d},\"meta\":{\"isMessage\":false,\"type\":\"updateSoft\"}}"
                           ,tmp.fileSize,array.toBase64().data(),tmp.md5.toStdString().c_str(),tmp.token);
             //qDebug()<<tmp.payload.size()<<len<<buf;
-            send_frame(COM_ETH,0x80,CMD_READ,len,(unsigned char *)buf);
+            //send_frame(COM_ETH,0x80,CMD_READ,len,(unsigned char *)buf);
+
+            send_frame(COM_ETH,0xD5,CMD_W_SUCCESS,len,(unsigned char *)buf);
+
             usleep(1000*200);
         }
         break;
