@@ -26,8 +26,8 @@ tps4
         }
 }
 
-回复上位机 成功
+升级成功回复上位机
 
 {"data":"update success","meta":{"isMessage":true,"type":"updateSoft"}}
-失败
+升级失败
 {"error":{"message":"msd5 err"},"type":"updateSoft"}

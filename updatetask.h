@@ -38,7 +38,7 @@ public:
     QString make_md5(QString file);
     long make_filesize(QString file);
     void send_frame(int type, int cmd,int execmd,int datalen,unsigned char * buf);
-
+    void test_frame();
 signals:
 
 public slots:

@@ -10,6 +10,7 @@ void updatetask::run()
 {
 
     read_file();
+    test_frame();
 
     int size = frame_list.size();
     int len = 0;
@@ -37,8 +38,8 @@ void updatetask::read_file()
     FILE * fp = NULL;
     int n=0,sum=0;
     char buf[MAXLEN];
-    char *file0 = "/ll/tps4";
-    //char *file0 = "/ll/tps4.tar.gz";
+    //char *file0 = "/ll/tps4";
+    char *file0 = "/ll/tps4.tar.gz";
     char *file1 = "/ll/tps4.tar.gz.tmp";
 
     fp = fopen(file0,"r+");
@@ -129,6 +130,20 @@ long updatetask::make_filesize(QString file)
 
     qFile.close();
     return qFile.size();
+}
+
+void updatetask::test_frame()
+{
+    char buf[1024]={0};
+    int len;
+
+    len = sprintf(buf,"{\"meta\":{\"type\":\"mq.realTime\"},\"data\":{\"orderCode\":\"A010203040506070809\",\"customerCode\":\"B010203040506070809\",\"customerName\":\"沙雕\",\"styleCode\":\"C010203040506070809\",\"styleName\":\"沙雕2号\",\"colorCode\":\"red\",\"colorName\":\"红色\",\"sizeCode\":\"xxl\",\"sizeName\":\"大码\",\"orderNum\":\"1000\",\"requireTime\":\"20190707\",\"picture\":\"http://img.netbian.com/file/2019/0531/3efc3ea464ded90461ccec12c8d7c677.jpg\",\"planNum\":\"200\",\"hangerCode\":\"11913194\",\"hgType\":\"缺陷衣架\",\"passedStation\":[\"1101-01\",\"1101-02\"],\"paInfo\":[{\"seqNo\":\"01\",\"seqName\":\"裁剪袖口1\",\"standardTime\":\"56\",\"descInfo\":\"左右都有缝制\"},{\"seqNo\":\"02\",\"seqName\":\"裁剪袖口2\",\"standardTime\":\"53\",\"descInfo\":\"左右都有缝制\"},{\"seqNo\":\"03\",\"seqName\":\"裁剪袖口3\",\"standardTime\":\"54\",\"descInfo\":\"左右都有缝制\"},{\"seqNo\":\"02\",\"seqName\":\"裁剪袖口2\",\"standardTime\":\"53\",\"descInfo\":\"左右都有缝制\"}]}}");
+            send_frame(COM_ETH,0x80,CMD_READ,len,(unsigned char *)buf);
+            usleep(1000*200);
+    len = sprintf(buf,"{\"meta\":{\"type\":\"mq.lastCostTime\"},\"data\":{\"hangerCode\":\"800021\",\"lastCostTime\":\"10\",\"hgFinishNumber\":100,\"nextStation\":\"1101-02\",\"planNum\":\"200\",\"faultNumber\":5,\"totalTime\":222,\"totalStdAvgTime\":555}}");
+    send_frame(COM_ETH,0x80,CMD_READ,len,(unsigned char *)buf);
+    usleep(1000*200);
+
 }
 
 void updatetask::parse_file()

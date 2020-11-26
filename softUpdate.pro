@@ -24,3 +24,6 @@ HEADERS  += widget.h \
     updatetask.h
 
 FORMS    += widget.ui
+
+OTHER_FILES += \
+    README.md
