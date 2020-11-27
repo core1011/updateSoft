@@ -2,7 +2,7 @@
 tps4
 
 上位机下发
-{"type":"softVer"}
+{"meta":{"type":"softVer"}}
 回复上位机
 {"data":{"ver":"1.0","maketime":"20200917"},"meta":{"isMessage":false,"type":"softVer"}}
 
