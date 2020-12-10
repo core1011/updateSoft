@@ -32,7 +32,7 @@ tps4
             "payload": "max 512字节",
             "state":"transfer",
             "transferSize":512/1024/1536/2048
-            "transferNo":0/1/2/3/sum 开始帧，1中间帧，frameSize结束帧
+            "transferNo":0/1/2/3/sum
 
         },
         "meta":
