@@ -43,7 +43,7 @@ void updatetask::run()
 
             send_frame(COM_ETH,0xD5,CMD_W_SUCCESS,len,(unsigned char *)buf);
 
-            usleep(1000*180);
+            usleep(1000*200);
         }
         break;
     }
