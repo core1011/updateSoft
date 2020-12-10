@@ -11,7 +11,6 @@ tps4
 
 上位机下发
 
-{"data":{"fileSize":90000,"payload":"512字节","md5":"md5值11111111","token":0},"meta":{"isMessage":false,"type":"updateSoft"}}
 
 {
         "data":
